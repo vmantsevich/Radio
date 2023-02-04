@@ -3,12 +3,13 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
 public class RadioTest {
+
     @Test
     public void shouldSetRadioStation() {
-        Radio station = new Radio();
-        station.setNumberOfCurrentRadioStation(3);
+        Radio station = new Radio(10);
+        station.setNumberOfCurrentRadioStation(5);
 
-        int expected = 3;
+        int expected = 5;
         int actual = station.getNumberOfCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
@@ -17,10 +18,10 @@ public class RadioTest {
 
     @Test
     public void shouldSetMaxRadioStation() {
-        Radio station = new Radio();
-        station.setNumberOfCurrentRadioStation(10);
+        Radio station = new Radio(10);
+        station.setNumberOfCurrentRadioStation(9);
 
-        int expected = 0;
+        int expected = 9;
         int actual = station.getNumberOfCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
@@ -28,7 +29,7 @@ public class RadioTest {
 
     @Test
     public void setNext() {
-        Radio station = new Radio();
+        Radio station = new Radio(10);
         station.setNumberOfCurrentRadioStation(9);
         station.next();
 
@@ -40,7 +41,7 @@ public class RadioTest {
 
     @Test
     public void setPrev() {
-        Radio station = new Radio();
+        Radio station = new Radio(10);
         station.setNumberOfCurrentRadioStation(0);
         station.prev();
         int expected = 9;
@@ -52,9 +53,9 @@ public class RadioTest {
     @Test
     public void shouldSetMaxVolume() {
         Radio volume = new Radio();
-        volume.setNumberOfCurrentVolume(10);
+        volume.setNumberOfCurrentVolume(101);
 
-        int expected = 10;
+        int expected = 100;
         int actual = volume.getNumberOfCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -75,10 +76,10 @@ public class RadioTest {
     @Test
     public void setVolumePlus() {
         Radio volume = new Radio();
-        volume.setNumberOfCurrentVolume(10);
+        volume.setNumberOfCurrentVolume(100);
         volume.volumePlus();
 
-        int expected = 10;
+        int expected = 100;
         int actual = volume.getNumberOfCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
